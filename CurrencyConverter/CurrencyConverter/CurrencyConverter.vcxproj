@@ -185,6 +185,7 @@
   <ItemGroup>
     <ClInclude Include="CurrencyConverter.h" />
     <ClInclude Include="CurrencyConverterDlg.h" />
+    <ClInclude Include="DateWorker.h" />
     <ClInclude Include="Downloader.h" />
     <ClInclude Include="pugiXML\pugiconfig.hpp" />
     <ClInclude Include="pugiXML\pugixml.hpp" />
@@ -196,6 +197,7 @@
   <ItemGroup>
     <ClCompile Include="CurrencyConverter.cpp" />
     <ClCompile Include="CurrencyConverterDlg.cpp" />
+    <ClCompile Include="DateWorker.cpp" />
     <ClCompile Include="Downloader.cpp" />
     <ClCompile Include="pugiXML\pugixml.cpp" />
     <ClCompile Include="stdafx.cpp">
