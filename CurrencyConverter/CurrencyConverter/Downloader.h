@@ -7,7 +7,7 @@ private:
 
 public:
 	Downloader();
-	std::string& DownloadContent();
-	std::string GetContent();
+	void DownloadContent();
+	std::string& GetContent();
 	bool IsContentDownloaded();
 };

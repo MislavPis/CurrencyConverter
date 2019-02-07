@@ -23,7 +23,7 @@ Downloader::Downloader()
 
 }
 
-std::string& Downloader::DownloadContent() {
+void Downloader::DownloadContent() {
 	std::string contentFromUrl;
 
 	curl_global_init(CURL_GLOBAL_ALL);
@@ -38,13 +38,12 @@ std::string& Downloader::DownloadContent() {
 	}
 	curl_global_cleanup();
 	this->content = contentFromUrl;
-	return contentFromUrl;
 }
 
 bool Downloader::IsContentDownloaded() {
 	return this->content.empty() ? false : true;
 }
 
-std::string Downloader::GetContent() {
+std::string& Downloader::GetContent() {
 	return this->content;
 }

@@ -33,6 +33,15 @@
     <ClInclude Include="Downloader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="pugiXML\pugiconfig.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pugiXML\pugixml.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="XmlParser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CurrencyConverter.cpp">
@@ -45,6 +54,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Downloader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pugiXML\pugixml.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="XmlParser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
