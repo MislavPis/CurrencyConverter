@@ -8,6 +8,10 @@ DateWorker::DateWorker(const CString& date, const char& separator, bool yearFirs
 	
 }
 
+DateWorker::~DateWorker()
+{
+}
+
 int DateWorker::GetDay() {
 	return this->day;
 }
@@ -22,25 +26,29 @@ int DateWorker::GetYear() {
 
 void DateWorker::Split() {
 	std::string buff{ "" };
-	std::vector<std::string> v;
+	std::vector<std::string> splittedComponents;
 	
 	for (int i = 0; i < dateString.GetLength(); ++i)
 	{
-		if (dateString.GetAt(i) != separator) buff += dateString.GetAt(i); else
-		if (dateString.GetAt(i) == separator && buff != "") { v.push_back(buff); buff = ""; }
+		if (dateString.GetAt(i) != separator) 
+			buff += dateString.GetAt(i); 
+		else if (dateString.GetAt(i) == separator && buff != "") 
+		{ 
+			splittedComponents.push_back(buff); buff = "";
+		}
 	}
-	if (buff != "") v.push_back(buff);
+	if (buff != "") splittedComponents.push_back(buff);
 
-	if (v.size() == 3) {
+	if (splittedComponents.size() == 3) {
 		if (yearFirst) {
-			this->day = std::stoi(v.at(2));
-			this->month = std::stoi(v.at(1));
-			this->year = std::stoi(v.at(0));
+			this->day = std::stoi(splittedComponents.at(2));
+			this->month = std::stoi(splittedComponents.at(1));
+			this->year = std::stoi(splittedComponents.at(0));
 		}
 		else {
-			this->day = std::stoi(v.at(0));
-			this->month = std::stoi(v.at(1));
-			this->year = std::stoi(v.at(2));
+			this->day = std::stoi(splittedComponents.at(0));
+			this->month = std::stoi(splittedComponents.at(1));
+			this->year = std::stoi(splittedComponents.at(2));
 		}
 	}
 }

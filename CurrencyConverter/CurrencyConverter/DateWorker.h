@@ -14,6 +14,7 @@ public:
 
 public:
 	DateWorker(const CString&, const char&, bool = true);
+	~DateWorker();
 
 	int GetDay();
 	int GetMonth();

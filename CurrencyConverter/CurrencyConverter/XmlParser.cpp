@@ -10,6 +10,10 @@ XmlParser::XmlParser()
 
 }
 
+XmlParser::~XmlParser()
+{
+}
+
 void XmlParser::CreateXmlFromString(const std::string& content){
 	pugi::xml_document document;
 	pugi::xml_parse_result result = document.load_string(content.c_str());

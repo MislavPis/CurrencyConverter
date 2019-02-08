@@ -23,6 +23,10 @@ Downloader::Downloader()
 
 }
 
+Downloader::~Downloader()
+{
+}
+
 void Downloader::DownloadContent() {
 	std::string contentFromUrl;
 
