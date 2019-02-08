@@ -45,7 +45,7 @@ void Downloader::DownloadContent() {
 }
 
 bool Downloader::IsContentDownloaded() {
-	return this->content.empty() ? false : true;
+	return !this->content.empty();
 }
 
 std::string& Downloader::GetContent() {

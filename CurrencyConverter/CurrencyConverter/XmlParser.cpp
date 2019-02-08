@@ -35,7 +35,7 @@ std::map<CString, float> XmlParser::GetParsedData() {
 }
 
 bool XmlParser::IsDataParsed() {
-	return this->currencyMap.empty() ? false : true;
+	return !this->currencyMap.empty();
 }
 
 CString XmlParser::GetTime() {
