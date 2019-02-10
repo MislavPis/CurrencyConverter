@@ -2,30 +2,11 @@
 #include <vector>
 #include "DateWorker.h"
 
-DateWorker::DateWorker(const CString& date, const char& separator, bool yearFirst) 
-	: dateString(date), separator(separator), day(0), month(0), year(0), yearFirst(yearFirst)
-{
-	
-}
+CString Format(const CString& dateString) {
+	int day, month, year;
+	const wchar_t separator = L'-';
 
-DateWorker::~DateWorker()
-{
-}
-
-int DateWorker::GetDay() {
-	return this->day;
-}
-
-int DateWorker::GetMonth() {
-	return this->month;
-}
-
-int DateWorker::GetYear() {
-	return this->year;
-}
-
-void DateWorker::Split() {
-	std::wstring  buff = _T("");
+	std::wstring buff = _T("");
 	std::vector<std::wstring> splittedComponents;
 	
 	for (int i = 0; i < dateString.GetLength(); ++i)
@@ -40,30 +21,15 @@ void DateWorker::Split() {
 	if (buff != _T("")) splittedComponents.push_back(buff);
 
 	if (splittedComponents.size() == 3) {
-		if (yearFirst) {
-			this->day = std::stoi(splittedComponents.at(2));
-			this->month = std::stoi(splittedComponents.at(1));
-			this->year = std::stoi(splittedComponents.at(0));
-		}
-		else {
-			this->day = std::stoi(splittedComponents.at(0));
-			this->month = std::stoi(splittedComponents.at(1));
-			this->year = std::stoi(splittedComponents.at(2));
-		}
+		day = std::stoi(splittedComponents.at(2));
+		month = std::stoi(splittedComponents.at(1));
+		year = std::stoi(splittedComponents.at(0));
+
 	}
+
+	CString str((std::to_string(day) + "." + std::to_string(month) + "." + std::to_string(year) + ".").c_str());
+	return str;
 }
 
-CString DateWorker::GetFullDate(DateFormat format) {
 
-	if (format == DateFormat::ddMMyyyy) {
-		CString str((std::to_string(day) + "." + std::to_string(month) + "." + std::to_string(year) + ".").c_str());
-		return str;
-	}
-	else if (format == DateFormat::yyyyMMdd) {
-		CString str((std::to_string(year) + "." + std::to_string(month) + "." + std::to_string(day) + ".").c_str());
-		return str;
-	}
-
-	return _T("");
-}
 

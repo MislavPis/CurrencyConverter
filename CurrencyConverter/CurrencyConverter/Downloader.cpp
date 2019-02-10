@@ -27,17 +27,7 @@ size_t AppendDataToStringCurlCallback(void *ptr, size_t size, size_t nmemb, void
 	return size * nmemb;
 }
 
-Downloader::Downloader() 
-	: content("")
-{
-
-}
-
-Downloader::~Downloader()
-{
-}
-
-void Downloader::DownloadContent() {
+std::string DownloadContent() {
 	std::string contentFromUrl;
 
 	curl_global_init(CURL_GLOBAL_ALL);
@@ -51,13 +41,10 @@ void Downloader::DownloadContent() {
 		curl_easy_cleanup(curl);
 	}
 	curl_global_cleanup();
-	this->content = contentFromUrl;
-}
 
-bool Downloader::IsContentDownloaded() {
-	return !this->content.empty();
-}
+	if (!contentFromUrl.empty()) {
+		return contentFromUrl;
+	}
 
-std::string& Downloader::GetContent() {
-	return this->content;
+	return "";
 }
