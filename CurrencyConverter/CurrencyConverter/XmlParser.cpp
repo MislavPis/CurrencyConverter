@@ -2,40 +2,23 @@
 #include "XmlParser.h"
 #include "pugiXML/pugixml.hpp"
 
-XmlParser::XmlParser()
-	: currencyMap(), time("")
-{
+std::pair< std::map<CString, float>, CString> CreateXmlFromString(const std::string& content){
+	std::map<CString, float> currencyMap;
+	CString date;
 
-}
-
-XmlParser::~XmlParser()
-{
-}
-
-void XmlParser::CreateXmlFromString(const std::string& content){
 	pugi::xml_document document;
 	pugi::xml_parse_result result = document.load_string(content.c_str());
 
 	if (result) {		
 		pugi::xml_node cubeNode = document.child("gesmes:Envelope").child("Cube");
 		pugi::xml_node childTime = cubeNode.child("Cube");
-		this->time = childTime.attribute("time").value();
+		date = childTime.attribute("time").value();
 
 		for (pugi::xml_node childCurrency = childTime.child("Cube"); childCurrency; childCurrency = childCurrency.next_sibling("Cube"))
 		{
 			currencyMap.insert(std::pair<CString, float>(childCurrency.attribute("currency").value(), std::stof(childCurrency.attribute("rate").value())));
 		}
 	}
-}
-
-std::map<CString, float> XmlParser::GetParsedData() {
-	return this->currencyMap;
-}
-
-bool XmlParser::IsDataParsed() {
-	return !this->currencyMap.empty();
-}
-
-CString XmlParser::GetTime() {
-	return this->time;
+	
+	return std::pair< std::map<CString, float>, CString>{ currencyMap, date };
 }

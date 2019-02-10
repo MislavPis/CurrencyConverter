@@ -1,16 +1,4 @@
 #pragma once
 
-class XmlParser {
-private:
-	std::map<CString, float> currencyMap;
-	CString time;
+std::pair< std::map<CString, float>, CString> CreateXmlFromString(const std::string&);
 
-public:
-	XmlParser();
-	~XmlParser();
-
-	void CreateXmlFromString(const std::string&);
-	std::map<CString, float> GetParsedData();
-	bool IsDataParsed();
-	CString GetTime();
-};

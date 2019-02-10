@@ -1,5 +1,4 @@
 #include "stdafx.h"
-#include <vector>
 #include "DateWorker.h"
 
 CString Format(const CString& dateString) {
