@@ -25,19 +25,19 @@ int DateWorker::GetYear() {
 }
 
 void DateWorker::Split() {
-	std::string buff{ "" };
-	std::vector<std::string> splittedComponents;
+	std::wstring  buff = _T("");
+	std::vector<std::wstring> splittedComponents;
 	
 	for (int i = 0; i < dateString.GetLength(); ++i)
 	{
 		if (dateString.GetAt(i) != separator) 
 			buff += dateString.GetAt(i); 
-		else if (dateString.GetAt(i) == separator && buff != "") 
+		else if (dateString.GetAt(i) == separator && buff != _T(""))
 		{ 
-			splittedComponents.push_back(buff); buff = "";
+			splittedComponents.push_back(buff); buff = _T("");
 		}
 	}
-	if (buff != "") splittedComponents.push_back(buff);
+	if (buff != _T("")) splittedComponents.push_back(buff);
 
 	if (splittedComponents.size() == 3) {
 		if (yearFirst) {
