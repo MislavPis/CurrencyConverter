@@ -4,10 +4,20 @@
 #define CURL_STATICLIB
 #include "curl/curl.h"
 
+#if defined _M_IX86
 #ifdef _DEBUG
 #	pragma comment(lib, "curl/libcurl_a_debug.lib")
 #else
 #	pragma comment(lib, "curl/libcurl_a.lib")
+#endif
+#endif
+
+#if defined _M_X64
+#ifdef _DEBUG
+#	pragma comment(lib, "curl64/libcurl_a_debug.lib")
+#else
+#	pragma comment(lib, "curl64/libcurl_a.lib")
+#endif
 #endif
 
 size_t AppendDataToStringCurlCallback(void *ptr, size_t size, size_t nmemb, void *vstring)
