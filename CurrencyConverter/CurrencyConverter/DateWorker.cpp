@@ -2,7 +2,10 @@
 #include "DateWorker.h"
 
 CString Format(const CString& dateString) {
-	int day, month, year;
+	int day = 0;
+	int month = 0;
+	int year = 0;
+
 	const wchar_t separator = L'-';
 
 	std::wstring buff = _T("");
