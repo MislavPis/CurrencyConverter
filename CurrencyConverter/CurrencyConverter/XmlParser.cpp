@@ -2,8 +2,6 @@
 #include "XmlParser.h"
 #include "pugiXML/pugixml.hpp"
 
-#include <string>
-
 XmlParser::XmlParser()
 	: currencyMap(), time("")
 {

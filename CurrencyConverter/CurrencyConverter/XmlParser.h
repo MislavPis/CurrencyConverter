@@ -1,8 +1,5 @@
 #pragma once
 
-#include <string>
-#include <map>
-
 class XmlParser {
 private:
 	std::map<CString, float> currencyMap;
