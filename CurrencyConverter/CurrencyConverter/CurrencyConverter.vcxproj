@@ -187,6 +187,7 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AboutDialog.h" />
     <ClInclude Include="CurrencyConverter.h" />
     <ClInclude Include="CurrencyConverterDlg.h" />
     <ClInclude Include="DateWorker.h" />
@@ -199,6 +200,7 @@
     <ClInclude Include="XmlParser.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AboutDialog.cpp" />
     <ClCompile Include="CurrencyConverter.cpp" />
     <ClCompile Include="CurrencyConverterDlg.cpp" />
     <ClCompile Include="DateWorker.cpp" />
