@@ -26,10 +26,9 @@ CString Format(const CString& dateString) {
 		day = std::stoi(splittedComponents.at(2));
 		month = std::stoi(splittedComponents.at(1));
 		year = std::stoi(splittedComponents.at(0));
-
 	}
 
-	CString str((std::to_string(day) + "." + std::to_string(month) + "." + std::to_string(year) + ".").c_str());
+	CString str((std::to_wstring(day) + _T(".") + std::to_wstring(month) + _T(".") + std::to_wstring(year) + _T(".")).c_str());
 	return str;
 }
 
